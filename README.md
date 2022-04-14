@@ -8,7 +8,7 @@
 
 3. On the command line, CD to the directory where you want to install Elasticsearch and Kibana.
 
-4. ```git clone git@github.com:Stackeduary/EE2022.git``` to clone the repository.
+4. `git clone git@github.com:Stackeduary/EE2022.git` to clone the repository.
 
 5. `cd EE2022`
 
@@ -52,20 +52,25 @@ Let's begin.
 
 ### Using the [example on elastic.co's documentation](https://www.elastic.co/guide/en/elasticsearch/painless/current/painless-walkthrough.html) as a guide, let's create an index called `boston_sports`.
 
-`curl -X PUT "localhost:9200/boston_sports?pretty"`
+```
+curl -X PUT "localhost:9200/boston_sports?pretty"
+```
 
 <br>
 
 ### Next, let's define a [mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html) for the `boston_sports` index. But before we do that, let's ensure that the index doesn't already exist, since we'll get an error if it does.
 
-`curl -X DELETE "localhost:9200/boston_sports"`
+```
+curl -X DELETE "localhost:9200/boston_sports"
+```
 
 
 (Getting a 404 HTTP response in this situation is a good thing as it indicates that the attempt to delete an index that doesn't already exist was not successful, which is what we expect.)
 
 <br>
 
-`curl -X PUT "localhost:9200/boston_sports?pretty" -H 'Content-Type: application/json' -d'
+```
+curl -X PUT "localhost:9200/boston_sports?pretty" -H 'Content-Type: application/json' -d'
 {
   "mappings": {
     "properties": {
@@ -75,7 +80,8 @@ Let's begin.
       "number_of_championships": { "type": "integer" }
     }
   }
-}'`
+}'
+```
 
 <br>
 
@@ -101,13 +107,15 @@ curl -X PUT "localhost:9200/boston_sports/_bulk?refresh&pretty" -H 'Content-Type
 
 ### Finally, let's do the equivalent of `SELECT * FROM table_name` in SQL to ensure that there's actual data in the `boston_sports` index.
 
-`curl -X GET "localhost:9200/boston_sports/_search?pretty" -H 'Content-Type: application/json' -d'
+```
+curl -X GET "localhost:9200/boston_sports/_search?pretty" -H 'Content-Type: application/json' -d'
 {
   "query": {
     "match_all": {}
   }
 }
-'`
+'
+```
 
 # Screenshots of Kibana displaying the data from the `boston_sports` index:
 
