@@ -81,7 +81,8 @@ Let's begin.
 
 ### Now let's insert some structured data into the index.
 
-`curl -X PUT "localhost:9200/boston_sports/_bulk?refresh&pretty" -H 'Content-Type: application/json' -d'
+```
+curl -X PUT "localhost:9200/boston_sports/_bulk?refresh&pretty" -H 'Content-Type: application/json' -d'
 {"index":{"_id":1}}
 {"team_name": "New England Patriots", "sport": "football", "year_incorporated": 1959, "number_of_championships": 6}
 {"index":{"_id":2}}
@@ -92,9 +93,9 @@ Let's begin.
 {"team_name": "Boston Celtics", "sport": "basketball", "year_incorporated": 1946, "number_of_championships": 17}
 {"index":{"_id":5}}
 {"team_name": "New England Revolution", "sport": "soccer", "year_incorporated": 1996, "number_of_championships": 0}
-'
+'  
 
-`
+```
 
 <br>
 
