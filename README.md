@@ -93,6 +93,7 @@ Let's begin.
 {"index":{"_id":5}}
 {"team_name": "New England Revolution", "sport": "soccer", "year_incorporated": 1996, "number_of_championships": 0}
 '
+
 `
 
 <br>
