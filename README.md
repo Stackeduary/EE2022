@@ -2,9 +2,9 @@
 
 1. Ensure that both Docker and Docker Compose are installed and Docker is running.
 
-2. On the command line, run `sudo echo 'vm.max_map_count=262144' >> /etc/sysctl.conf` to [increase the virtual memory available](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html).
-    1. Run `sudo sysctl -p` to apply the changes.
-    2. Verify that the changes were applied by running `sudo sysctl vm.max_map_count`.
+2. On the command line as root user, run `echo 'vm.max_map_count=262144' >> /etc/sysctl.conf` to [increase the virtual memory available](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html).
+    1. Run `sysctl -p` to apply the changes.
+    2. Verify that the changes were applied by running `sysctl vm.max_map_count`.
 
 3. On the command line, CD to the directory where you want to install Elasticsearch and Kibana.
 
