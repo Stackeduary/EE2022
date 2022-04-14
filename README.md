@@ -38,7 +38,9 @@ Elasticsearch is a free and open-source, distributed, RESTful search and analyti
 
 - Types are comprised of documents, which are analogous to rows in a relational database table.
 
-- Indices are created and retrieved using HTTP methods.
+- Indices are created, retrieved and deleted using the HTTP methods `HEAD`, `GET`, `PUT` and `DELETE` 
+
+  - `POST` is not supported and will return a 405 error.
 
 <br>
 
@@ -58,14 +60,14 @@ curl -X PUT "localhost:9200/boston_sports?pretty"
 
 <br>
 
-### Next, let's define a [mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html) for the `boston_sports` index. But before we do that, let's ensure that the index doesn't already exist, since we'll get an error if it does.
+### Next, let's define an [explicit mapping](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping.html) for the `boston_sports` index. But before we do that, let's ensure that the index doesn't already exist, since we'll get an error if it does.
 
 ```
 curl -X DELETE "localhost:9200/boston_sports"
 ```
 
 
-(Getting a 404 HTTP response in this situation is a good thing as it indicates that the attempt to delete an index that doesn't already exist was not successful, which is what we expect.)
+(Getting a 404 HTTP response in this situation is a good thing as it indicates that we made an unsuccessful attempt to delete an index that doesn't exist, which is what we expect.)
 
 <br>
 
@@ -82,6 +84,12 @@ curl -X PUT "localhost:9200/boston_sports?pretty" -H 'Content-Type: application/
   }
 }'
 ```
+
+You may be asking why we created the `boston_sports` index and then immediately deleted it. That's because we have two options: 
+1. create the index and then add data to it and allow Elasticsearch to dynamically infer the index mapping; or 
+2. create the index and an explicit mapping in one step, then add data to the index in bulk. 
+
+These instructions follow the latter route.
 
 <br>
 
@@ -102,6 +110,7 @@ curl -X PUT "localhost:9200/boston_sports/_bulk?refresh&pretty" -H 'Content-Type
 '  
 
 ```
+Ensure that the newline character is included at the end or else you'll get a 400 HTTP response saying that the bulk request must be terminated by a newline character.
 
 <br>
 
