@@ -8,7 +8,7 @@
 
 3. On the command line, CD to the directory where you want to install Elasticsearch and Kibana.
 
-4. `git clone git@github.com:Stackeduary/EE2022.git` to clone the repository.
+4. ```git clone git@github.com:Stackeduary/EE2022.git``` to clone the repository.
 
 5. `cd EE2022`
 
