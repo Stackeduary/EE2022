@@ -1,4 +1,6 @@
-# Procedure to install Elasticsearch and Kibana version 7.9.2 on Linux
+# Test Task for Eesti Energia, Summer 2022
+
+## Procedure to install Elasticsearch and Kibana version 7.9.2 on Linux
 
 1. Ensure that both Docker and Docker Compose are installed and Docker is running.
 
@@ -28,7 +30,7 @@
 <br>
 <br>
 
-# Executing scripts to create indices, create mappings and add structured data to indices
+## Executing scripts to create indices, create mappings and add structured data to indices
 
 Elasticsearch is a free and open-source, distributed, RESTful search and analytics engine. Data are stored in schema-less JSON format.
 
@@ -126,7 +128,7 @@ curl -X GET "localhost:9200/boston_sports/_search?pretty" -H 'Content-Type: appl
 '
 ```
 
-# Screenshots of Kibana displaying the data from the `boston_sports` index:
+## Screenshots of Kibana displaying the data from the `boston_sports` index:
 
 ![screenshot 1](./screenshots/Kibana_Boston_sports_screenshot_1.png)
 
